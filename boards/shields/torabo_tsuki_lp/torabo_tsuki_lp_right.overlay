@@ -3,10 +3,20 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &trackball_listener {
-    input-processors = 
-         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-         <&zip_xy_scaler 1 2>,                             // ★カーソル速度 1/x 倍
-         <&zip_temp_layer 3 500>;                            //オートマウスレイヤーの選択
+    status = "okay";
+    device = <&trackball>;
+
+    scroller {
+        layers = <4>;
+        input-processors = <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
+                           <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
+                           <&zip_xy_to_scroll_mapper>,                         //スクロールモードに変更
+                           <&zip_scroll_transform INPUT_TRANSFORM_XY_SWAP>,   //スクロールのX軸とY軸の入れ替え
+                           <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   //スクロールのX軸反転
+                           <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,   //スクロールのY軸反転
+                           <&zip_scroll_scaler 1 25>;                           //スクロール量を1/x倍
+    };
+
 };
 
 &size_s_transform {
