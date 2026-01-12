@@ -7,10 +7,12 @@
 #include <dt-bindings/zmk/pointing.h>
 
 // #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
+
 #define MOUSE 3
 #define SCROLL 4
 
 // OS設定を日本語キーボードのまま使用するための変換定義
+
 #define JP_DQUOTE       AT                // "
 #define JP_AMPERSAND    CARET             // &
 #define JP_QUOTE        AMPERSAND         // '
@@ -75,16 +77,16 @@
             tapping-term-ms = <200>;
         };
     };
-    
+
     keymap {
         compatible = "zmk,keymap";
 
         layer_0 {
             bindings = <
-&none  &none             &none  &none         &none             &none                                           &none      &none  &none      &none    &none                 &none
-&none  &kp Q             &kp W  &kp E         &kp R             &kp T                                           &kp Y      &kp U  &kp I      &kp O    &kp P                 &none
-&none  &kp A             &kp S  &kp D         &kp F             &kp G        &none               &none          &kp H      &kp J  &kp K      &kp L    &mt RCTRL MINUS       &none
-&none  &mt Z LEFT_SHIFT  &kp X  &kp C         &kp V             &kp B        &none               &none          &kp N      &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT FSLH  &none
+&none  &none             &none  &none         &none            &none                                           &none      &none  &none      &none    &none                 &none
+&none  &kp Q             &kp W  &kp E         &kp R            &kp T                                           &kp Y      &kp U  &kp I      &kp O    &kp P                 &none
+&none  &kp A             &kp S  &kp D         &kp F            &kp G        &none               &none          &kp H      &kp J  &kp K      &kp L    &mt RCTRL MINUS       &none
+&none  &mt LEFT_SHIFT Z  &kp X  &kp C         &kp V            &kp B        &none               &none          &kp N      &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT FSLH  &none
 &none  &kp LEFT_ALT      &none  &kp LEFT_WIN  &lt 1 JP_HANZEN  &lt 2 SPACE  &lt 4 INT_MUHENKAN  &kp BACKSPACE  &kp ENTER  &none  &none      &none    &kp RCTRL             &none
             >;
         };
@@ -101,24 +103,24 @@
 
         layer_2 {
             bindings = <
-&trans  &trans         &trans             &trans            &trans             &trans                        &trans      &trans          &trans          &trans           &trans                     &trans
-&trans  &kp NUMBER_1   &kp NUMBER_2       &kp NUMBER_3      &kp NUMBER_4       &kp N5                        &kp N6      &kp N7          &kp N8          &kp N9           &kp N0                     &trans
-&trans  &mt LCTRL TAB  &kp JP_YEN         &kp JP_AT         &kp JP_CARET       &kp LEFT_ALT  &trans  &trans  &kp HOME    &mkp MB1        &kp UP_ARROW    &mkp MB2         &mt COLON RCTRL            &trans
-&trans  &kp LEFT_SHIFT &kp JP_UNDERSCORE  &kp JP_LBRACKET   &kp JP_RBRACKET    &none         &trans  &trans  &kp END     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &mt SEMICOLON RIGHT_SHIFT  &trans
-&trans  &trans         &trans             &trans            &trans             &trans        &trans  &kp DELETE  &kp ESC &trans          &trans          &trans           &trans                     &trans
+&trans  &trans          &trans             &trans           &trans           &trans                            &trans    &trans          &trans          &trans           &trans                     &trans
+&trans  &kp NUMBER_1    &kp NUMBER_2       &kp NUMBER_3     &kp NUMBER_4     &kp N5                            &kp N6    &kp N7          &kp N8          &kp N9           &kp N0                     &trans
+&trans  &mt LCTRL TAB   &kp JP_YEN         &kp JP_AT        &kp JP_CARET     &kp LEFT_ALT  &trans  &trans      &kp HOME  &mkp MB1        &kp UP_ARROW    &mkp MB2         &mt COLON RCTRL            &trans
+&trans  &kp LEFT_SHIFT  &kp JP_UNDERSCORE  &kp JP_LBRACKET  &kp JP_RBRACKET  &none         &trans  &trans      &kp END   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &mt SEMICOLON RIGHT_SHIFT  &trans
+&trans  &trans          &trans             &trans           &trans           &trans        &trans  &kp DELETE  &kp ESC   &trans          &trans          &trans           &trans                     &trans
             >;
         };
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans &trans  &trans  &trans
-&trans  &none   &none   &none   &none   &none                   &none   &trans  &mkp MB3 &trans &none   &trans
-&trans  &none   &none   &none   &none   &none   &trans  &trans  &none   &mkp MB1 &mo 4  &mkp MB2 &none   &trans
-&trans  &none   &none   &none   &none   &none   &trans  &trans  &none   &none   &none   &none   &none   &trans
-&trans  &trans  &trans  &trans  &none   &none   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &none   &none   &none   &none   &none                   &none   &trans    &mkp MB3  &trans    &none   &trans
+&trans  &none   &none   &none   &none   &none   &trans  &trans  &none   &mkp MB1  &mo 4     &mkp MB2  &none   &trans
+&trans  &none   &none   &none   &none   &none   &trans  &trans  &none   &none     &none     &none     &none   &trans
+&trans  &trans  &trans  &trans  &none   &none   &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans
             >;
         };
-        
+
         SCROLL {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
